@@ -1,12 +1,14 @@
 package com.example.lavka;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addFragmet(new RegisterFragment());
         viewPager.setAdapter(pagerAdapter);
     }
+
+    public void goToSurvey(View view) {
+        Intent intent = new Intent(this, NavigationActivity.class);
+
+        startActivity(intent);
+    }
+
 
     class AuthenticationPagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> fragmentList = new ArrayList<>();

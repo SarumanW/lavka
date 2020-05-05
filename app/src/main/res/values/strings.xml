@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Lavka</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swipe_left_for_register">Swipe Left for Register</string>
     <string name="login">Login</string>
@@ -12,4 +11,18 @@
     <string name="register">Register</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
+
+    <string name="survey_title">Food Survey</string>
+    <string name="survey_explain">Please, go through this survey, \nand let us know what do you like!</string>
+    <string name="submit">Submit</string>
+
+    <string name="title_activity_navigation">Lavka</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_title">Name Surname</string>
+    <string name="nav_header_subtitle">email@gmail.com</string>
+
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>

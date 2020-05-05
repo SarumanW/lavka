@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_survey"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".SurveyActivity">
+
+        <TextView
+            android:id="@+id/survey_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/indigo_daisy"
+            android:text="@string/survey_title"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/survey_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/survey_title"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/survey_explain"
+            android:textAlignment="center"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:id="@+id/survey_content"
+            android:layout_width="match_parent"
+            android:layout_height="485dp"
+            android:layout_below="@+id/survey_subtitle"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/survey_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_custom"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/submit"
+            android:textColor="@android:color/white"
+            android:onClick="onSurveySubmit"/>
+
+    </RelativeLayout>
+</ScrollView>

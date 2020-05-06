@@ -33,7 +33,7 @@ public class NavigationActivity extends AppCompatActivity
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new ProductFragment()).commit();
+                    new CategoriesFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_products);
         }
     }
@@ -81,7 +81,7 @@ public class NavigationActivity extends AppCompatActivity
                 break;
             case R.id.nav_products:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ProductFragment()).commit();
+                        new CategoriesFragment()).commit();
                 break;
             case R.id.nav_restrictions:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

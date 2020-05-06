@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +62,17 @@ public class ProductAdapter extends BaseAdapter {
             ImageView imageView = gridView
                     .findViewById(R.id.product_img);
 
+            imageView.setOnClickListener(v -> {
+                ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+
+                Bundle args = new Bundle();
+                args.putSerializable("product", productList.get(position));
+                productDetailsFragment.setArguments(args);
+
+                context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        productDetailsFragment).commit();
+            });
+
             String imagePath = productList.get(position).getImagePath();
             new DownloadImageTask(imageView).execute(imagePath);
         } else {
@@ -71,7 +83,7 @@ public class ProductAdapter extends BaseAdapter {
     }
 
     @SuppressLint("StaticFieldLeak")
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    public static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
         DownloadImageTask(ImageView bmImage) {

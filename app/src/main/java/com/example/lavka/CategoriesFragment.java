@@ -19,11 +19,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class CategoriesFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     GridView gridView;
 
-    public ProductFragment() {
+    public CategoriesFragment() {
 
     }
 

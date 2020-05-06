@@ -1,24 +1,24 @@
 package com.example.lavka;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.example.lavka.model.Category;
 
 import java.util.List;
 
 public class CategoryAdapter extends BaseAdapter {
-    private Context context;
+    private FragmentActivity context;
     private List<Category> categoryList;
 
     public CategoryAdapter(Context context, List<Category> products) {
-        this.context = context;
+        this.context = (FragmentActivity) context;
         this.categoryList = products;
     }
 
@@ -48,7 +48,18 @@ public class CategoryAdapter extends BaseAdapter {
             button = (Button) convertView;
         }
         button.setId(position);
-        button.setMinHeight(100);
+
+        button.setOnClickListener(v -> {
+            ProductListFragment productListFragment = new ProductListFragment();
+
+            Bundle args = new Bundle();
+            args.putLong("categoryNumber", categoryList.get(position).getCategoryNumber());
+            productListFragment.setArguments(args);
+
+            context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    productListFragment).commit();
+        });
+
         return button;
     }
 }

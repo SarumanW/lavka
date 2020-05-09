@@ -8,21 +8,24 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round" />
+        android:text="@string/app_name"
+        android:textSize="50sp"
+        android:fontFamily="@font/indigo_daisy" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Coding in Flow"
+        android:text="Знайди те, що шукаєш!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@codinginflow.com" />
+        android:text="lavka@gmail.com" />
 
 </LinearLayout>

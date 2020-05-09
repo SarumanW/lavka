@@ -7,15 +7,20 @@
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person"
-            android:title="Profile" />
+            android:title="Профіль" />
         <item
             android:id="@+id/nav_products"
             android:icon="@drawable/ic_shopping_cart"
-            android:title="Products" />
+            android:title="Список продуктів" />
         <item
-            android:id="@+id/nav_restrictions"
-            android:icon="@drawable/ic_food"
-            android:title="Restrictions" />
+            android:id="@+id/nav_survey"
+            android:icon="@drawable/ic_assignment"
+            android:title="Опитування" />
+
+        <item
+            android:id="@+id/nav_liked"
+            android:icon="@drawable/ic_favorite"
+            android:title="Вподобання" />
     </group>
 
 </menu>

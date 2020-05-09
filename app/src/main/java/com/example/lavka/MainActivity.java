@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToSurvey(View view) {
-        Intent intent = new Intent(this, NavigationActivity.class);
+        Intent intent = new Intent(this, SurveyActivity.class);
 
         startActivity(intent);
     }

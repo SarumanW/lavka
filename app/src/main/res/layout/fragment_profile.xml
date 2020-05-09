@@ -1,14 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_vertical"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_gravity="center">
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Особистий профіль"
+            android:textAlignment="center"
+            android:textSize="30sp"></TextView>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_margin="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/login_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3px"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Логін"
+                    android:textAlignment="center"
+                    android:textSize="15sp"></TextView>
+
+                <TextView
+                    android:id="@+id/login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3px"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="login"
+                    android:textAlignment="center"
+                    android:textSize="15sp"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_margin="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/password_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3px"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Пароль"
+                    android:textAlignment="center"
+                    android:textSize="15sp"></TextView>
+
+                <TextView
+                    android:id="@+id/password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3px"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="password"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    android:textSize="15sp"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="20sp"
+                android:layout_margin="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/restriction_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3px"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Продуктові обмеження"
+                    android:textAlignment="center"
+                    android:textSize="15sp"></TextView>
+
+                <CheckBox
+                    android:id="@+id/restrictions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="26sp" />
+            </TableRow>
+
+        </TableLayout>
+
+
+    </LinearLayout>
+</ScrollView>

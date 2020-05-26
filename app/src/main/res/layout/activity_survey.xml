@@ -51,7 +51,7 @@
                 android:textSize="17sp" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/radios"
+                android:id="@+id/dietslist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -141,6 +141,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Оберіть продукти, яких ви намагаєтесь уникати:"
                 android:textSize="17sp" />
+
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/products"
                 android:layout_width="match_parent"

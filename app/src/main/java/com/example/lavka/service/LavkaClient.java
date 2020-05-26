@@ -2,6 +2,7 @@ package com.example.lavka.service;
 
 import com.example.lavka.model.Category;
 import com.example.lavka.model.Product;
+import com.example.lavka.model.SurveyResponse;
 import com.example.lavka.model.User;
 
 import java.util.List;
@@ -21,6 +22,15 @@ public interface LavkaClient {
     Call<List<Product>> products(@Path("categoryId") Long categoryId);
 
     @POST("api/user/save")
-    Call<User> products(@Body User user);
+    Call<User> updateUser(@Body User user);
+
+    @POST("api/auth/sign-up")
+    Call<User> signUp(@Body User user);
+
+    @POST("api/survey/sendAnswers")
+    Call<User> submitSurvey(@Body SurveyResponse surveyResponse);
+
+    @GET("api/user/{login}")
+    Call<User> login(@Path("login") String login);
 
 }

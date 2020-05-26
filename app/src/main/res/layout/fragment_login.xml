@@ -25,10 +25,10 @@
         android:fontFamily="@font/roboto_regular"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="50dp"
-        android:layout_above="@id/et_email"/>
+        android:layout_above="@id/login_login"/>
 
     <EditText
-        android:id="@+id/et_email"
+        android:id="@+id/login_login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/e_mail"
@@ -37,12 +37,12 @@
         android:padding="15dp"
         android:inputType="textEmailAddress"
         android:fontFamily="@font/roboto_regular"
-        android:layout_above="@id/et_password"
+        android:layout_above="@id/login_password"
         android:background="@drawable/et_custom"
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/et_password"
+        android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="@string/password"
@@ -60,14 +60,15 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_password"
+        android:layout_below="@id/login_password"
         android:background="@drawable/btn_custom"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/roboto_regular"
         android:textColor="@android:color/white"
-        android:text="@string/login"/>
+        android:text="@string/login"
+        android:onClick="login"/>
 
     <ImageView
         android:layout_width="30dp"

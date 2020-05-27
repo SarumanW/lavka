@@ -9,13 +9,9 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.example.lavka.model.Product;
-import com.example.lavka.service.RestService;
+import com.example.lavka.service.Singleton;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ProductListFragment extends Fragment {
 
@@ -31,29 +27,14 @@ public class ProductListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_product_list, container, false);
         gridView = v.findViewById(R.id.gridView);
 
-        getProductsList(getArguments().getLong("categoryNumber"));
+        long categoryId = getArguments().getLong("categoryNumber");
+
+        List<Product> userProductsByCategoryId =
+                Singleton.getInstance().getUserProductsByCategoryId(categoryId);
+
+        setupProductsAdapter(userProductsByCategoryId);
 
         return v;
-    }
-
-    private void getProductsList(Long categoryId) {
-        Call<List<Product>> call = RestService.client.products(categoryId);
-
-        call.enqueue(new Callback<List<Product>>() {
-
-            @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                List<Product> body = response.body();
-
-                setupProductsAdapter(body);
-            }
-
-            @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
-                System.out.println(t.getMessage());
-            }
-        });
-
     }
 
     private void setupProductsAdapter(List<Product> products) {

@@ -26,9 +26,19 @@ public class User implements Serializable {
 
     private List<String> diets;
 
+    private boolean isRestrictionsOn = true;
+
     public User(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public boolean isRestrictionsOn() {
+        return isRestrictionsOn;
+    }
+
+    public void setRestrictionsOn(boolean restrictionsOn) {
+        isRestrictionsOn = restrictionsOn;
     }
 
     public Long getId() {

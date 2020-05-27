@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.example.lavka.model.User;
 import com.example.lavka.service.RestService;
+import com.example.lavka.service.Singleton;
 
 import java.util.ArrayList;
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     startNavigationActivity(response.body());
                 } else {
                     onLoginFail();
@@ -107,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
     private void startNavigationActivity(User user) {
         Intent intent = new Intent(this, NavigationActivity.class);
 
-        intent.putExtra("id", user.getId());
+        user.setRestrictionsOn(true);
+        Singleton.getInstance().setUser(user);
 
         startActivity(intent);
     }

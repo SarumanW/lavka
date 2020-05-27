@@ -14,6 +14,10 @@ public class Product implements Serializable {
     @Expose
     private Long id;
 
+    @SerializedName("categoryId")
+    @Expose
+    private Long categoryId;
+
     @SerializedName("imagePath")
     @Expose
     @Nullable
@@ -40,6 +44,14 @@ public class Product implements Serializable {
     @SerializedName("nutritionFacts")
     @Expose
     private Map<String, String> nutritionFacts;
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public Long getId() {
         return id;

@@ -1,7 +1,6 @@
 package com.example.lavka;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -50,14 +49,24 @@ public class CategoryAdapter extends BaseAdapter {
         button.setId(position);
 
         button.setOnClickListener(v -> {
-            ProductListFragment productListFragment = new ProductListFragment();
+            Long categoryNumber = categoryList.get(position).getCategoryNumber();
 
-            Bundle args = new Bundle();
-            args.putLong("categoryNumber", categoryList.get(position).getCategoryNumber());
-            productListFragment.setArguments(args);
+            if (categoryNumber == 0L) {
+                ListProductListFragment listProductListFragment = new ListProductListFragment();
 
-            context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    productListFragment).commit();
+                context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        listProductListFragment).commit();
+            } else {
+                ProductListFragment productListFragment = new ProductListFragment();
+
+                Bundle args = new Bundle();
+                args.putLong("categoryNumber", categoryNumber);
+                productListFragment.setArguments(args);
+
+                context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        productListFragment).commit();
+            }
+
         });
 
         return button;

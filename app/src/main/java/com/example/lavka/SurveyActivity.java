@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import com.example.lavka.model.SurveyResponse;
 import com.example.lavka.model.User;
 import com.example.lavka.service.RestService;
+import com.example.lavka.service.Singleton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +58,7 @@ public class SurveyActivity extends AppCompatActivity {
     private void startNavigationActivity(User user) {
         Intent intent = new Intent(this, NavigationActivity.class);
 
-        intent.putExtra("id", user.getId());
+        Singleton.getInstance().setUser(user);
 
         startActivity(intent);
     }

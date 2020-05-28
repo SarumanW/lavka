@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 
 import com.example.lavka.model.Category;
 import com.example.lavka.service.RestService;
+import com.example.lavka.service.Singleton;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,29 +40,35 @@ public class CategoriesFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void getCategoriesList() {
-        Call<List<Category>> call = RestService.client.categories();
+        if (Singleton.getInstance().getCategories() == null) {
+            Call<List<Category>> call = RestService.client.categories();
 
-        call.enqueue(new Callback<List<Category>>() {
+            call.enqueue(new Callback<List<Category>>() {
 
-            @Override
-            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
-                List<Category> body = response.body();
+                @Override
+                public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+                    List<Category> body = response.body();
 
-                loopCategories(body, null);
+                    loopCategories(body, null);
 
-                List<Category> categories = body.stream()
-                        .filter(c -> c.getSubCategories().size() > 0)
-                        .collect(Collectors.toList());
+                    List<Category> categories = body.stream()
+                            .filter(c -> c.getSubCategories().size() > 0)
+                            .collect(Collectors.toList());
 
-                setupCategoriesAdapter(categories);
-            }
+                    Singleton.getInstance().setCategories(categories);
 
-            @Override
-            public void onFailure(Call<List<Category>> call, Throwable t) {
-                System.out.println(t.getMessage());
-            }
-        });
+                    setupCategoriesAdapter(categories);
+                }
 
+                @Override
+                public void onFailure(Call<List<Category>> call, Throwable t) {
+                    System.out.println(t.getMessage());
+                }
+            });
+
+        } else {
+            setupCategoriesAdapter(Singleton.getInstance().getCategories());
+        }
     }
 
     private static void loopCategories(List<Category> categories, Category parentCategory) {

@@ -1,5 +1,6 @@
 package com.example.lavka.service;
 
+import com.example.lavka.model.Category;
 import com.example.lavka.model.Product;
 import com.example.lavka.model.User;
 
@@ -9,6 +10,8 @@ import java.util.stream.Collectors;
 public class Singleton {
 
     private User user;
+
+    private List<Category> categories;
 
     private Singleton() {
     }
@@ -27,9 +30,8 @@ public class Singleton {
 
     public List<Product> getUserProductsByCategoryId(Long categoryId) {
         return user.getProducts().stream()
-                .filter(p -> p.getCategoryId().equals(categoryId))
+                .filter(p -> String.valueOf(p.getCategoryId()).startsWith(String.valueOf(categoryId)))
                 .collect(Collectors.toList());
-
     }
 
     public List<Product> getUserProducts() {
@@ -38,5 +40,13 @@ public class Singleton {
 
     public User getUser() {
         return user;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

@@ -27,7 +27,7 @@ public class ProductListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_product_list, container, false);
         gridView = v.findViewById(R.id.gridView);
 
-        long categoryId = getArguments().getLong("categoryNumber");
+        long categoryId = getArguments().getLong("categoryId");
 
         List<Product> userProductsByCategoryId =
                 Singleton.getInstance().getUserProductsByCategoryId(categoryId);

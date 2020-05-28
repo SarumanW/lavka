@@ -24,7 +24,13 @@ public class User implements Serializable {
     @Expose
     private List<Product> products;
 
+    @SerializedName("diets")
+    @Expose
     private List<String> diets;
+
+    @SerializedName("restrictedItems")
+    @Expose
+    private List<String> restrictedItems;
 
     private boolean isRestrictionsOn = true;
 
@@ -39,6 +45,14 @@ public class User implements Serializable {
 
     public void setRestrictionsOn(boolean restrictionsOn) {
         isRestrictionsOn = restrictionsOn;
+    }
+
+    public List<String> getRestrictedItems() {
+        return restrictedItems;
+    }
+
+    public void setRestrictedItems(List<String> restrictedItems) {
+        this.restrictedItems = restrictedItems;
     }
 
     public Long getId() {

@@ -26,12 +26,32 @@ public class SurveyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
+
+        User user = Singleton.getInstance().getUser();
+        if (user != null) {
+            List<String> diets = user.getDiets();
+            List<String> restrictedItems = user.getRestrictedItems();
+
+            List<CheckBox> dietCheckboxes = this.getDietCheckboxes();
+            for (CheckBox checkBox : dietCheckboxes) {
+                if (diets.contains(checkBox.getText().toString())) {
+                    checkBox.setChecked(true);
+                }
+            }
+
+            List<CheckBox> productCheckboxes = this.getProductCheckboxes();
+            for (CheckBox checkBox : productCheckboxes) {
+                if (restrictedItems.contains(checkBox.getText().toString())) {
+                    checkBox.setChecked(true);
+                }
+            }
+        }
     }
 
     public void onSurveySubmit(View view) {
         Map<String, List<String>> surveyAnswers = fillAnswers();
 
-        User user = (User) getIntent().getSerializableExtra("user");
+        User user = Singleton.getInstance().getUser();
 
         sendSurveyAnswers(user, surveyAnswers);
     }
@@ -45,21 +65,19 @@ public class SurveyActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                startNavigationActivity(response.body());
+                User user = response.body();
+
+                user.setRestrictionsOn(true);
+                Singleton.getInstance().setUser(user);
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                System.out.println("Error");
             }
         });
-    }
 
-    private void startNavigationActivity(User user) {
         Intent intent = new Intent(this, NavigationActivity.class);
-
-        Singleton.getInstance().setUser(user);
-
         startActivity(intent);
     }
 
@@ -68,7 +86,34 @@ public class SurveyActivity extends AppCompatActivity {
 
         List<String> dietsAnswers = new ArrayList<>();
 
+        List<CheckBox> dietsCheckboxes = this.getDietCheckboxes();
+
+        for (CheckBox checkBox : dietsCheckboxes) {
+            if (checkBox.isChecked()) {
+                dietsAnswers.add(checkBox.getText().toString());
+            }
+        }
+
+        surveyAnswers.put("Оберіть пункти, які найкраще вас описують:", dietsAnswers);
+
+        List<String> productsAnswers = new ArrayList<>();
+
+        List<CheckBox> productsCheckboxes = this.getProductCheckboxes();
+
+        for (CheckBox checkBox : productsCheckboxes) {
+            if (checkBox.isChecked()) {
+                productsAnswers.add(checkBox.getText().toString());
+            }
+        }
+
+        surveyAnswers.put("Оберіть продукти, яких ви намагаєтесь уникати:", productsAnswers);
+
+        return surveyAnswers;
+    }
+
+    private List<CheckBox> getDietCheckboxes() {
         List<CheckBox> dietsCheckboxes = new ArrayList<>();
+
         dietsCheckboxes.add(findViewById(R.id.weightloss));
         dietsCheckboxes.add(findViewById(R.id.paleo));
         dietsCheckboxes.add(findViewById(R.id.mediterrian));
@@ -81,17 +126,12 @@ public class SurveyActivity extends AppCompatActivity {
         dietsCheckboxes.add(findViewById(R.id.milkfree));
         dietsCheckboxes.add(findViewById(R.id.saltfree));
 
-        for (CheckBox checkBox : dietsCheckboxes) {
-            if (checkBox.isChecked()) {
-                dietsAnswers.add(checkBox.getText().toString());
-            }
-        }
+        return dietsCheckboxes;
+    }
 
-        surveyAnswers.put("Оберіть пункти, які найкраще вас описують:", dietsAnswers);
-
-        List<String> productsAnswers = new ArrayList<>();
-
+    private List<CheckBox> getProductCheckboxes() {
         List<CheckBox> productsCheckboxes = new ArrayList<>();
+
         productsCheckboxes.add(findViewById(R.id.eggplant));
         productsCheckboxes.add(findViewById(R.id.mayonaise));
         productsCheckboxes.add(findViewById(R.id.mushrooms));
@@ -104,14 +144,6 @@ public class SurveyActivity extends AppCompatActivity {
         productsCheckboxes.add(findViewById(R.id.subproducts));
         productsCheckboxes.add(findViewById(R.id.citrus));
 
-        for (CheckBox checkBox : productsCheckboxes) {
-            if (checkBox.isChecked()) {
-                productsAnswers.add(checkBox.getText().toString());
-            }
-        }
-
-        surveyAnswers.put("Оберіть продукти, яких ви намагаєтесь уникати:", productsAnswers);
-
-        return surveyAnswers;
+        return productsCheckboxes;
     }
 }

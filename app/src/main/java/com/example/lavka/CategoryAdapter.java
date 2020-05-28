@@ -49,9 +49,9 @@ public class CategoryAdapter extends BaseAdapter {
         button.setId(position);
 
         button.setOnClickListener(v -> {
-            Long categoryNumber = categoryList.get(position).getCategoryNumber();
+            Long categoryId = categoryList.get(position).getCategoryId();
 
-            if (categoryNumber == 0L) {
+            if (categoryId == 0L) {
                 ListProductListFragment listProductListFragment = new ListProductListFragment();
 
                 context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -60,7 +60,7 @@ public class CategoryAdapter extends BaseAdapter {
                 ProductListFragment productListFragment = new ProductListFragment();
 
                 Bundle args = new Bundle();
-                args.putLong("categoryNumber", categoryNumber);
+                args.putLong("categoryId", categoryId);
                 productListFragment.setArguments(args);
 
                 context.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

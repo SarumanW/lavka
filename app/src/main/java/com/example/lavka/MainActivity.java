@@ -60,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                startSurveyActivity(response.body());
+                User user = response.body();
+
+                user.setRestrictionsOn(true);
+                Singleton.getInstance().setUser(user);
             }
 
             @Override
@@ -68,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        Intent intent = new Intent(this, SurveyActivity.class);
+        startActivity(intent);
     }
 
     private void onLoginFail() {
@@ -92,7 +98,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
-                    startNavigationActivity(response.body());
+                    User user = response.body();
+
+                    user.setRestrictionsOn(true);
+                    Singleton.getInstance().setUser(user);
+
+                    //openNavigation();
                 } else {
                     onLoginFail();
                 }
@@ -103,25 +114,10 @@ public class MainActivity extends AppCompatActivity {
                 onLoginFail();
             }
         });
-    }
 
-    private void startNavigationActivity(User user) {
         Intent intent = new Intent(this, NavigationActivity.class);
-
-        user.setRestrictionsOn(true);
-        Singleton.getInstance().setUser(user);
-
         startActivity(intent);
     }
-
-    private void startSurveyActivity(User user) {
-        Intent intent = new Intent(this, SurveyActivity.class);
-
-        intent.putExtra("user", user);
-
-        startActivity(intent);
-    }
-
 
     class AuthenticationPagerAdapter extends FragmentPagerAdapter {
         private ArrayList<Fragment> fragmentList = new ArrayList<>();

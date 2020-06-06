@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gridView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
-    android:horizontalSpacing="5dp"
-    android:numColumns="2"
-    android:padding="10dp"
-    android:stretchMode="columnWidth"
-    android:verticalSpacing="5dp">
+    android:orientation="vertical">
 
-</GridView>
+    <TextView
+        android:id="@+id/noLikedProductsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_regular"
+        android:padding="10dp"
+        android:text="Ви поки що не вподобали жоден продукт :("
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:horizontalSpacing="5dp"
+        android:numColumns="2"
+        android:padding="10dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp">
+
+    </GridView>
+
+</LinearLayout>

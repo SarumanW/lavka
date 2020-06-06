@@ -24,6 +24,10 @@ public class User implements Serializable {
     @Expose
     private List<Product> products;
 
+    @SerializedName("likedProducts")
+    @Expose
+    private List<Product> likedProducts;
+
     @SerializedName("diets")
     @Expose
     private List<String> diets;
@@ -93,5 +97,13 @@ public class User implements Serializable {
 
     public void setDiets(List<String> diets) {
         this.diets = diets;
+    }
+
+    public List<Product> getLikedProducts() {
+        return likedProducts;
+    }
+
+    public void setLikedProducts(List<Product> likedProducts) {
+        this.likedProducts = likedProducts;
     }
 }

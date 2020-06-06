@@ -35,7 +35,7 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="413dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:stretchColumns="*">
 
@@ -231,13 +231,13 @@
         </TableLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/addToLiked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_custom"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@android:color/white"
-            android:text="Додати до корзини" />
+            android:text="@string/like_product" />
 
 
     </LinearLayout>

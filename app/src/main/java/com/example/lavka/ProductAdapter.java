@@ -57,7 +57,14 @@ public class ProductAdapter extends BaseAdapter {
             TextView textView = gridView
                     .findViewById(R.id.product_name);
 
-            textView.setText(productList.get(position).getShortName());
+            String name;
+            if (productList.get(position).getShortName() != null) {
+                name = productList.get(position).getShortName();
+            } else {
+                name = productList.get(position).getName();
+            }
+
+            textView.setText(name);
 
             ImageView imageView = gridView
                     .findViewById(R.id.product_img);

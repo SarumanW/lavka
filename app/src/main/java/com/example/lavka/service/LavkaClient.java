@@ -18,10 +18,7 @@ public interface LavkaClient {
     @GET("api/food/categories")
     Call<List<Category>> categories();
 
-    @GET("api/food/{categoryId}/products")
-    Call<List<Product>> products(@Path("categoryId") Long categoryId);
-
-    @POST("api/user/save")
+    @POST("api/user/changePassword")
     Call<User> updateUser(@Body User user);
 
     @POST("api/auth/sign-up")
@@ -33,4 +30,9 @@ public interface LavkaClient {
     @GET("api/user/{login}")
     Call<User> login(@Path("login") String login);
 
+    @POST("api/food/like/{productId}")
+    Call<User> likeProduct(@Body User user, @Path("productId") Long productId);
+
+    @POST("api/food/unlike/{productId}")
+    Call<User> unlikeProduct(@Body User user, @Path("productId") Long productId);
 }

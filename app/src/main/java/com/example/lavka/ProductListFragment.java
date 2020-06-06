@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.example.lavka.model.Product;
 import com.example.lavka.service.Singleton;
@@ -32,7 +33,12 @@ public class ProductListFragment extends Fragment {
         List<Product> userProductsByCategoryId =
                 Singleton.getInstance().getUserProductsByCategoryId(categoryId);
 
-        setupProductsAdapter(userProductsByCategoryId);
+        if (userProductsByCategoryId.isEmpty()) {
+            TextView textView = v.findViewById(R.id.noProductsText);
+            textView.setVisibility(View.VISIBLE);
+        } else {
+            setupProductsAdapter(userProductsByCategoryId);
+        }
 
         return v;
     }

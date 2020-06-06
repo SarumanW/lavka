@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.lavka.service.Singleton;
+
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -88,6 +90,14 @@ public class NavigationActivity extends AppCompatActivity
             case R.id.nav_liked:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new LikedFragment()).commit();
+                break;
+            case R.id.nav_logout:
+                Singleton.getInstance().setUser(null);
+
+                Intent loginActivity = new Intent(this, MainActivity.class);
+
+                startActivity(loginActivity);
+
                 break;
         }
 

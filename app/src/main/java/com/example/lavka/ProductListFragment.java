@@ -13,6 +13,7 @@ import com.example.lavka.model.Product;
 import com.example.lavka.service.Singleton;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductListFragment extends Fragment {
 
@@ -30,14 +31,21 @@ public class ProductListFragment extends Fragment {
 
         long categoryId = getArguments().getLong("categoryId");
 
-        List<Product> userProductsByCategoryId =
-                Singleton.getInstance().getUserProductsByCategoryId(categoryId);
+        List<Product> userProducts;
 
-        if (userProductsByCategoryId.isEmpty()) {
+        if (Singleton.getInstance().isRestrictionsOn()) {
+            userProducts = Singleton.getInstance().getUserProductsByCategoryId(categoryId);
+        } else {
+            userProducts = Singleton.getInstance().getProducts().stream()
+                    .filter(p -> String.valueOf(p.getCategoryId()).startsWith(String.valueOf(categoryId)))
+                    .collect(Collectors.toList());
+        }
+
+        if (userProducts.isEmpty()) {
             TextView textView = v.findViewById(R.id.noProductsText);
             textView.setVisibility(View.VISIBLE);
         } else {
-            setupProductsAdapter(userProductsByCategoryId);
+            setupProductsAdapter(userProducts);
         }
 
         return v;

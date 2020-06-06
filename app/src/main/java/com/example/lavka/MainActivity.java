@@ -13,11 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.lavka.model.Product;
 import com.example.lavka.model.User;
 import com.example.lavka.service.RestService;
 import com.example.lavka.service.Singleton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +38,30 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addFragmet(new LoginFragment());
         pagerAdapter.addFragmet(new RegisterFragment());
         viewPager.setAdapter(pagerAdapter);
+        
+        getAllProductsList();
+    }
+
+    private void getAllProductsList() {
+        if (Singleton.getInstance().getProducts() == null) {
+            Call<List<Product>> call = RestService.client.getProducts();
+
+            call.enqueue(new Callback<List<Product>>() {
+
+                @Override
+                public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                    List<Product> products = response.body();
+
+                    Singleton.getInstance().setProducts(products);
+                }
+
+                @Override
+                public void onFailure(Call<List<Product>> call, Throwable t) {
+                    System.out.println(t.getMessage());
+                }
+            });
+
+        }
     }
 
     public void login(View view) {

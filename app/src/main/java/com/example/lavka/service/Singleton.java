@@ -13,6 +13,8 @@ public class Singleton {
 
     private List<Category> categories;
 
+    private List<Product> products;
+
     private Singleton() {
     }
 
@@ -22,6 +24,10 @@ public class Singleton {
 
     public static Singleton getInstance() {
         return SingletonHolder.instance;
+    }
+
+    public boolean isRestrictionsOn() {
+        return this.user.isRestrictionsOn();
     }
 
     public void setUser(User user) {
@@ -48,5 +54,13 @@ public class Singleton {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

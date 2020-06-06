@@ -18,6 +18,9 @@ public interface LavkaClient {
     @GET("api/food/categories")
     Call<List<Category>> categories();
 
+    @GET("api/food/products")
+    Call<List<Product>> getProducts();
+
     @POST("api/user/changePassword")
     Call<User> updateUser(@Body User user);
 

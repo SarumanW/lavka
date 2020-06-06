@@ -28,11 +28,21 @@ public class ListProductListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list_product_list, container, false);
 
-        List<String> userProducts = Singleton.getInstance().getUserProducts()
-                .stream()
-                .map(Product::getShortName)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
+        List<String> userProducts;
+
+        if (Singleton.getInstance().isRestrictionsOn()) {
+            userProducts = Singleton.getInstance().getUserProducts()
+                    .stream()
+                    .map(Product::getShortName)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+        } else {
+            userProducts = Singleton.getInstance().getProducts()
+                    .stream()
+                    .map(Product::getShortName)
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+        }
 
         ListView productsList = v.findViewById(R.id.productsList);
 

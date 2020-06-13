@@ -56,82 +56,270 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/weightloss"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Втрачаю вагу" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/paleo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Палео дієта" />
+                    <CheckBox
+                        android:id="@+id/weightloss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Втрачаю вагу" />
 
-                <CheckBox
-                    android:id="@+id/mediterrian"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Середземнороська дієта" />
 
-                <CheckBox
-                    android:id="@+id/keto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Кето дієта" />
+                    <Button
+                        android:id="@+id/weightlossB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/diabet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Діабетик" />
 
-                <CheckBox
-                    android:id="@+id/vegan"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Веган" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/vegetatian"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Вегетаріанець" />
+                    <CheckBox
+                        android:id="@+id/paleo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Палео дієта" />
 
-                <CheckBox
-                    android:id="@+id/pesk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Пескатаріанець" />
 
-                <CheckBox
-                    android:id="@+id/glutenfree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Їжа без вмісту глютену" />
+                    <Button
+                        android:id="@+id/paleoB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/milkfree"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Уникаю молочних продуктів" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/saltfree"
-                    android:layout_width="wrap_content"
+                    <CheckBox
+                        android:id="@+id/mediterrian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Середземнороська дієта" />
+
+
+                    <Button
+                        android:id="@+id/mediterrianB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Їжа з низьким вмістом солі" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/keto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Кето дієта" />
+
+
+                    <Button
+                        android:id="@+id/ketoB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/diabet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Діабетик" />
+
+
+                    <Button
+                        android:id="@+id/diabetB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/vegan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Веган" />
+
+
+                    <Button
+                        android:id="@+id/veganB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/vegetatian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Вегетаріанець" />
+
+
+                    <Button
+                        android:id="@+id/vegetatianB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/pesk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Пескатаріанець" />
+
+
+                    <Button
+                        android:id="@+id/peskB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/glutenfree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Їжа без вмісту глютену" />
+
+
+                    <Button
+                        android:id="@+id/glutenfreeB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/milkfree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Уникаю молочних продуктів" />
+
+
+                    <Button
+                        android:id="@+id/milkfreeB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/saltfree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Їжа з низьким вмістом солі" />
+
+
+                    <Button
+                        android:id="@+id/saltfreeB"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/btn_custom_circle"
+                        android:text="?"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
             </RadioGroup>
 
             <TextView
@@ -148,82 +336,161 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/eggplant"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Баклажан" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/mayonaise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Майонез" />
+                    <CheckBox
+                        android:id="@+id/eggplant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Баклажан" />
 
-                <CheckBox
-                    android:id="@+id/mushrooms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Гриби" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/nuts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Арахіс" />
 
-                <CheckBox
-                    android:id="@+id/onion"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Цибуля" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/seafood"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Морепродукти" />
+                    <CheckBox
+                        android:id="@+id/mayonaise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Майонез" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/soy"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Соя" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/olive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Оливки" />
+                    <CheckBox
+                        android:id="@+id/mushrooms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Гриби" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/eggs"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Яйця" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <CheckBox
-                    android:id="@+id/subproducts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Субпродукти" />
+                    <CheckBox
+                        android:id="@+id/nuts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Арахіс" />
+                </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/citrus"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Цитрусові" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/onion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Цибуля" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/seafood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Морепродукти" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/soy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Соя" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/olive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Оливки" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/eggs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Яйця" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/subproducts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Субпродукти" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/citrus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Цитрусові" />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/et_products"
@@ -250,9 +517,9 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_custom"
             android:fontFamily="@font/roboto_regular"
+            android:onClick="onSurveySubmit"
             android:text="@string/submit"
-            android:textColor="@android:color/white"
-            android:onClick="onSurveySubmit"/>
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 </ScrollView>

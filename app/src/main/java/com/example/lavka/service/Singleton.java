@@ -31,6 +31,10 @@ public class Singleton {
     }
 
     public void setUser(User user) {
+        if(user != null) {
+            user.setRestrictionsOn(true);
+        }
+
         this.user = user;
     }
 

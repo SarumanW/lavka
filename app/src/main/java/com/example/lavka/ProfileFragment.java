@@ -42,9 +42,7 @@ public class ProfileFragment extends Fragment {
 
         restrictionsCheckBox.setOnCheckedChangeListener(
                 (buttonView, isChecked) -> {
-                    user.setRestrictionsOn(isChecked);
-
-                    Singleton.getInstance().setUser(user);
+                    Singleton.getInstance().getUser().setRestrictionsOn(isChecked);
                 }
         );
 
@@ -65,7 +63,7 @@ public class ProfileFragment extends Fragment {
 
                 user.setLogin(editText.getText().toString());
 
-                updateUser(user);
+                changeLogin(user);
             });
 
             alertDialog.show();
@@ -74,8 +72,8 @@ public class ProfileFragment extends Fragment {
         return v;
     }
 
-    private void updateUser(User user) {
-        Call<User> call = RestService.client.updateUser(user);
+    private void changeLogin(User user) {
+        Call<User> call = RestService.client.changeLogin(user);
 
         call.enqueue(new Callback<User>() {
 

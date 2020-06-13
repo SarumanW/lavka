@@ -22,7 +22,10 @@ public interface LavkaClient {
     Call<List<Product>> getProducts();
 
     @POST("api/user/changePassword")
-    Call<User> updateUser(@Body User user);
+    Call<User> changePassword(@Body User user);
+
+    @POST("api/user/changeLogin")
+    Call<User> changeLogin(@Body User user);
 
     @POST("api/auth/sign-up")
     Call<User> signUp(@Body User user);

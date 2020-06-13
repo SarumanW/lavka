@@ -1,15 +1,20 @@
 package com.example.lavka;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.lavka.model.SurveyResponse;
 import com.example.lavka.model.User;
 import com.example.lavka.service.RestService;
 import com.example.lavka.service.Singleton;
+import com.tooltip.Tooltip;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,6 +51,8 @@ public class SurveyActivity extends AppCompatActivity {
                 }
             }
         }
+
+        this.setupHelperButtons();
     }
 
     public void onSurveySubmit(View view) {
@@ -146,4 +153,137 @@ public class SurveyActivity extends AppCompatActivity {
 
         return productsCheckboxes;
     }
+
+    private void setupHelperButtons() {
+        findViewById(R.id.weightlossB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта, розрахована на тих, хто має проблеми із зайвою вагою. " +
+                                    "Переважно уникає випічки, десертів, солодких фруктів, мінімізує вуглеводи.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.paleoB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Назва походить від слова палеоліт, тобто дієта печерних людей, які займалися масливством та збиральництвом. " +
+                                    "Основою є тваринний білок (без напівфабрикатів, бекону та сала). Виключаються злаки, молочні продукти, бобові, цукор та сіль.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.mediterrianB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта заснована на наукових даних про кращі показники здоров'я у представників середземноморського регіону. " +
+                                    "Основою їх раціону є рослинна їжа: фрукти, овочі, горіхи, бобові, злаки. Виключається червоне м'ясо та солодощі.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.ketoB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Низьковуглеводна дієта, що передбачає 80% жирів у раціоні. Зобороняються борошняні продукти, рис, коренеплоди, цукор, кукурудза, " +
+                                    "боби, фрукти (окрім ягід) та молоко.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.diabetB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта для людей, що хворіють діабетом та мають підвищений рівень глюкози у крові. У такому випадку усі продукти, " +
+                                    "що містять цукор, виключаються із щоденного раціону. " +
+                                    "Також варто уникати продуктів, що можуть викликати підвищення рівня глюкози: картопля, рис, баранина, білий хліб, алкоголь.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.veganB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта для людей, що повністю відмовились від усіх продуктів тваринного походження: м'яса, риби, яєць, молочних продуктів, меду, желатину.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.vegetatianB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта для людей, що частково відмовились від продуктів тваринного походження, не вживають " +
+                                    "тільки м'ясо і рибу, але дозволяють вживання молочних продуктів та яєць.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.peskB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Окрема форма вегетаріанства, що дуже нагадує середземноморську дієту, оскільки існує повна відмова " +
+                                    "від будь-якого м'яса, натомість перевага надається морепродуктам.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.glutenfreeB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта, що виключає із раціону продукти, що містять глютен: усі популярні крупи, квас, оцет, " +
+                                    "ароматизатори, борошняні вироби та солодощі, макарони, усі готові соуси, консерви та напівфабрикати.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.milkfreeB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта, що виключає із раціону молочні продукти.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+
+        findViewById(R.id.saltfreeB)
+                .setOnClickListener(v -> {
+                    Tooltip tooltip = new Tooltip.Builder(v)
+                            .setText("Дієта, що виключає із раціону продукти із високим вмістом солі.")
+                            .setTextColor(Color.WHITE)
+                            .setGravity(Gravity.TOP)
+                            .setCornerRadius(8f)
+                            .setDismissOnClick(true)
+                            .show();
+                });
+    }
+
 }
